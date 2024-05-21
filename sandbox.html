@@ -2,6 +2,33 @@
 
 <!DOCTYPE html>
 <html>
+ <div id="create">create video</div>
+  <script data-apikey="NOo9NgmQRwevhrZLm3Q7PA" src="https://us01ccistatic.zoom.us/us01cci/web-sdk/zcc-sdk.js"></script>
+    </script> <!-- The script source is the video client JS SDK for Contact Center.
+    Get this from the code copied from the flow. -->
+    <script>
+      (() => {
+        const dom = document.getElementById('create')
+        dom.addEventListener('click', async () => {
+          const entryId = "ASpRJKPmRKWMFn7apNcqpQ" /* Get from the code copied from
+                                          your flow */
+          const videoClient = new VideoClient({
+          });
+          await videoClient.init({
+            entryId,
+            name: 'name' /* optional field, omit if not using, null value
+                        not accepted */
+          });
+          videoClient.startVideo()
+          videoClient.on('video-end', () => {
+            console.log('video ended') /* Add any actions to perform when the
+                                        video ends, for example, print to
+                                        console log */
+          })
+        })
+      })()
+    </script>
+
  
 <head>
 <title>Zoom Web client</title>
@@ -32,26 +59,7 @@ localStorage.setItem("product", "Shoes");
 
 sessionStorage.setItem("size", "Small");
 
-document.getElementById("demo").onclick = function() {StartVideo()};
 
-
-function StartVideo() 
-
-{
-
-
-        const entryId = "ASpRJKPmRKWMFn7apNcqpQ"; /* Get from the code copied from
-                                          your flow */
-          const videoClient = new VideoClient({
-          });
-          await videoClient.init({
-            entryId,
-            name: 'John' /* optional field, omit if not using, null value
-                        not accepted */
-          });
-          videoClient.startVideo();
-
-}
  
 </script>
 
@@ -62,7 +70,7 @@ function StartVideo()
  </form>
 
 
- <script data-apikey="NOo9NgmQRwevhrZLm3Q7PA" src="https://us01ccistatic.zoom.us/us01cci/web-sdk/zcc-sdk.js"></script>
+// <script data-apikey="NOo9NgmQRwevhrZLm3Q7PA" src="https://us01ccistatic.zoom.us/us01cci/web-sdk/zcc-sdk.js"></script>
 
 
 </body>
