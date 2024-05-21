@@ -20,6 +20,8 @@ h1 {
  </head>
  
 <body>
+<button id="demo" type="button" >Start Video!</button>
+ 
 <script>
 
 window.customerSegmentVar  = "Gold";
@@ -30,6 +32,27 @@ localStorage.setItem("product", "Shoes");
 
 sessionStorage.setItem("size", "Small");
 
+document.getElementById("demo").onclick = function() {StartVideo()};
+
+
+function StartVideo() 
+
+{
+
+
+        const entryId = "ASpRJKPmRKWMFn7apNcqpQ"; /* Get from the code copied from
+                                          your flow */
+          const videoClient = new VideoClient({
+          });
+          await videoClient.init({
+            entryId,
+            name: 'John' /* optional field, omit if not using, null value
+                        not accepted */
+          });
+          videoClient.startVideo();
+
+}
+ 
 </script>
 
 
