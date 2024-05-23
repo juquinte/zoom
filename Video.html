@@ -2,36 +2,11 @@
 
 <!DOCTYPE html>
 <html>
- <button id="create">Start video</button>
+
 
   <script data-apikey="NOo9NgmQRwevhrZLm3Q7PA" src="https://us01ccistatic.zoom.us/us01cci/web-sdk/zcc-sdk.js"></script>
 
-    <script>
-
-
-
-
-     
-        const dom = document.getElementById('create');
-        window.addEventListener('load', async () => {
-          const entryId = "ASpRJKPmRKWMFn7apNcqpQ" /* Get from the code copied from
-                                          your flow */
-          const videoClient = new VideoClient({
-          });
-          await videoClient.init({
-            entryId,
-            name: 'name' /* optional field, omit if not using, null value
-                        not accepted */
-          });
-          videoClient.startVideo()
-          videoClient.on('video-end', () => {
-            console.log('video ended') /* Add any actions to perform when the
-                                        video ends, for example, print to
-                                        console log */
-          })
-        });
-    
-    </script>
+   
 
  
 <head>
@@ -51,7 +26,39 @@ h1 {
  </head>
  
 <body>
+<script defer>
 
+   
+        
+          
+          
+window.addEventListener("load", async function(){
+
+console.log('load started');
+const entryId = "ASpRJKPmRKWMFn7apNcqpQ"; /* Get from the code copied from
+                                          your flow */
+          const videoClient = new VideoClient({
+          });
+          await videoClient.init({
+            entryId,
+            name: 'name' /* optional field, omit if not using, null value
+                        not accepted */
+          });
+
+videoClient.startVideo();
+
+ videoClient.on('video-end', () => {
+            console.log('video ended'); /* Add any actions to perform when the
+                                        video ends, for example, print to
+                                        console log */
+          })
+        
+});
+
+
+    
+    </script>
+  
  
 <script>
 
